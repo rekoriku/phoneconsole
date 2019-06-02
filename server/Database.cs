@@ -13,6 +13,7 @@ namespace server
         string password;
         string databaseName;
         MySqlConnection conn;
+
         public Database(string serverIp, string username, string password, string databaseName)
         {
             this.serverIp = serverIp;
