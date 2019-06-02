@@ -15,8 +15,9 @@ public class TcpTimeClient
 
             NetworkStream ns = client.GetStream();
 
-            Console.WriteLine(ReadMessage(ns));
+            //Console.WriteLine(ReadMessage(ns));
 
+            SendMessage(ns, "Hello Server!");
             client.Close();
         }
         catch (Exception e)
