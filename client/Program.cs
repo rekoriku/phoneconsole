@@ -15,13 +15,9 @@ public class TcpTimeClient
 
             NetworkStream ns = client.GetStream();
 
-            byte[] bytes = new byte[1024];
-            int bytesRead = ns.Read(bytes, 0, bytes.Length);
-
-            Console.WriteLine(Encoding.ASCII.GetString(bytes, 0, bytesRead));
+            Console.WriteLine(ReadMessage(ns));
 
             client.Close();
-
         }
         catch (Exception e)
         {
@@ -29,5 +25,28 @@ public class TcpTimeClient
         }
 
         return 0;
+    }
+
+    private static string ReadMessage(NetworkStream stream)
+    {
+        if(stream != null)
+        {
+            byte[] bytes = new byte[1024];
+            int bytesRead = stream.Read(bytes, 0, bytes.Length);
+
+            return Encoding.ASCII.GetString(bytes, 0, bytesRead);
+        }
+        else
+        {
+            return "";
+        }
+    }
+
+    private static void SendMessage(NetworkStream stream)
+    {
+        if(stream != null)
+        {
+
+        }
     }
 }
