@@ -8,31 +8,35 @@ namespace server
 {
     class Database
     {
-        string serverIp = "<Server IP or Hostname>";
-        string username = "<DB username>";
-        string password = "<DB password>";
-        string databaseName = "<DB name>";
-        public Database()
+        string serverIp;
+        string username;
+        string password;
+        string databaseName;
+        MySqlConnection conn;
+        public Database(string serverIp, string username, string password, string databaseName)
         {
-           
+            this.serverIp = serverIp;
+            this.username = username;
+            this.password = password;
+            this.databaseName = databaseName;
         }
-        
 
-        string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", serverIp, username, password, databaseName);
-        string query = "SELECT * FROM YourTable";
+        private void Connect()
+        {
+            string dbConnectionString = string.Format("server={0};uid={1};pwd={2};database={3};", serverIp, username, password, databaseName);
+            conn = new MySqlConnection(dbConnectionString);
+            conn.Open();
+        }
 
-        MySqlConnection conn = new MySql.Data.MySqlClient.MySqlConnection(dbConnectionString);
-        conn.Open();
- 
-MySqlCommand cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
-        MySqlDataReader reader = cmd.ExecuteReader();
-
- 
-while (reader.Read())
-{
- someValue = reader["SomeColumnName"];
-
-        // Do something with someValue
+        public void GetAllEntries(string table_name)
+        {
+            string query = "SELECT * FROM " + table_name;
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                //Read from db
+            }
+        }
     }
 }
-
