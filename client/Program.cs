@@ -17,7 +17,7 @@ public class TcpTimeClient
 
             //Console.WriteLine(ReadMessage(ns));
 
-            SendMessage(ns, "Hello Server!");
+            Networking.SendMessage(ns, "Hello Server!");
             client.Close();
         }
         catch (Exception e)
@@ -28,28 +28,5 @@ public class TcpTimeClient
         return 0;
     }
 
-    private static string ReadMessage(NetworkStream stream)
-    {
-        if(stream != null && stream.CanRead)
-        {
-            byte[] bytes = new byte[1024];
-            int bytesRead = stream.Read(bytes, 0, bytes.Length);
-
-            return Encoding.ASCII.GetString(bytes, 0, bytesRead);
-        }
-        else
-        {
-            return "";
-        }
-    }
-
-    private static void SendMessage(NetworkStream stream, string message)
-    {
-        if(stream != null && stream.CanWrite)
-        {
-            byte[] clientMessageAsByteArray = Encoding.ASCII.GetBytes(message);
-            stream.Write(clientMessageAsByteArray, 0, clientMessageAsByteArray.Length);
-            Console.WriteLine("Client sent his message - should be received by server");
-        }
-    }
+   
 }
