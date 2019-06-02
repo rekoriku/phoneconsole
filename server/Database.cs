@@ -29,15 +29,22 @@ namespace server
             conn.Open();
         }
 
+        private void Disconnect()
+        {
+            conn.Close();
+        }
+
         public void GetAllEntries(string table_name)
         {
+            Connect();
             string query = "SELECT * FROM " + table_name;
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
-                //Read from db
+                Console.WriteLine(reader["firstname"]);
             }
+            Disconnect();
         }
     }
 }
