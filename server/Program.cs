@@ -1,17 +1,18 @@
 ﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
 public class TcpTimeServer
 {
 
-    private const int portNum = 13;
+    private const int portNum = 5500;
 
     public static int Main(String[] args)
     {
         bool done = false;
 
-        TcpListener listener = new TcpListener(portNum);
+        TcpListener listener = new TcpListener(IPAddress.Any,portNum);
 
         listener.Start();
 

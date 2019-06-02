@@ -4,8 +4,8 @@ using System.Text;
 
 public class TcpTimeClient
 {
-    private const int portNum = 13;
-    private const string hostName = "host.contoso.com";
+    private const int portNum = 5500;
+    private const string hostName = "localhost";
 
     public static int Main(String[] args)
     {
