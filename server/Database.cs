@@ -52,7 +52,7 @@ namespace server
         public void DelRow(string[] arr)
         {
             Connect();
-            string query = $"DELETE FROM ds19_phonenumbers WHERE id={arr[1]}; ";
+            string query = $"DELETE FROM ds19_phonenumbers WHERE id={arr[1]}; "; //comment
             MySqlCommand cmd = new MySqlCommand(query, conn);
             cmd.ExecuteNonQuery();
             Disconnect();
