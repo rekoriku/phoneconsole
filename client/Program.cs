@@ -150,10 +150,6 @@ public class TcpTimeClient
                 input = -1;
                 return false;
             }
-            else if (userInput != "")
-            {
-                continue;
-            }
             else if(Int32.TryParse(userInput, out tempInput))
             {
                 done = true;
