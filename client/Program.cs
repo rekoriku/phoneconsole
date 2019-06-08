@@ -120,10 +120,41 @@ public class TcpTimeClient
             tempInput = Console.ReadLine();
             if(tempInput == "abort")
             {
-                tempInput = String.Empty;
+                input = String.Empty;
                 return false;
             }
             else if (tempInput != "")
+            {
+                continue;
+            }
+        }
+
+        input = tempInput;
+        return true;
+    }
+
+    public static bool GetInputInt(string promt, ref int input)
+    {
+        bool done = false;
+        int tempInput = -1;
+        string userInput = String.Empty;
+        while (!done)
+        {
+            tempInput = -1;
+            userInput = String.Empty;
+            Console.WriteLine(promt);
+            Console.WriteLine("If you want to abort enter: abort");
+            userInput = Console.ReadLine();
+            if (userInput == "abort")
+            {
+                input = -1;
+                return false;
+            }
+            else if (userInput != "")
+            {
+                continue;
+            }
+            else if(Int32.TryParse(userInput, out tempInput))
             {
                 done = true;
             }
