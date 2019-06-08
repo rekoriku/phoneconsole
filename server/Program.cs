@@ -32,6 +32,16 @@ namespace server
                 string[] messageArr = db.Parse(message);
                 switch (messageArr[0])
                 {
+                    case "add_rows":
+                        break;
+                    case "delete_rows":
+                        break;
+                    case "search_all_rows":
+                        break;
+                    case "search_rows_by_name":
+                        break;
+                    case "search_rows_by_number":
+                        break;
                     case "end":
                         done = true;
                         break;
