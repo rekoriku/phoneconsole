@@ -25,7 +25,7 @@ namespace server
             { 
                 NetworkStream ns = client.GetStream();
                 string message = Networking.ReadMessage(ns);
-                //db.AddRow(db.Parse(message));
+                //db.DelRow(db.Parse(message));
                 //Console.WriteLine();
                 if (message == "end")
                 {

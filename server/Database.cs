@@ -48,6 +48,15 @@ namespace server
             cmd.ExecuteNonQuery();
             Disconnect();
         }
+
+        public void DelRow(string[] arr)
+        {
+            Connect();
+            string query = $"DELETE FROM ds19_phonenumbers WHERE id={arr[1]}; ";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            Disconnect();
+        }
         public void GetAllEntries(string table_name)
         {
             Connect();
