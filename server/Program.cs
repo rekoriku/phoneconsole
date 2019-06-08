@@ -33,18 +33,41 @@ namespace server
                 switch (messageArr[0])
                 {
                     case "add_rows":
-                        break;
+                        {
+                            db.AddRow(message);
+                            Networking.SendMessage(ns, "Row added");
+                            break;
+                        }
                     case "delete_rows":
-                        break;
+                        {
+                            db.DelRow(message);
+                            Networking.SendMessage(ns, "Row deleted");
+                            break;
+                        }
                     case "search_all_rows":
-                        break;
+                        {
+                            List<PhoneRecord> records = db.GetAllEntries("ds19_phonenumbers");
+                            Networking.SendMessage(ns, String.Join(",", records));
+                            break;
+                        }
                     case "search_rows_by_name":
-                        break;
+                        {
+                            List<PhoneRecord> records = db.GetFromColumnByValue("ds19_phonenumbers", "lastname", messageArr[1]);
+                            Networking.SendMessage(ns, String.Join(",", records));
+                            break;
+                        }
                     case "search_rows_by_number":
-                        break;
+                        {
+                            List<PhoneRecord> records = db.GetFromColumnByValue("ds19_phonenumbers", "phonenumber", messageArr[1]);
+                            Networking.SendMessage(ns, String.Join(",", records));
+                            break;
+                        }
+                        
                     case "end":
-                        done = true;
-                        break;
+                        {
+                            done = true;
+                            break;
+                        }
                 }
 
                 Console.WriteLine(message);
