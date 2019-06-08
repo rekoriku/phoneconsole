@@ -45,7 +45,13 @@ public class TcpTimeClient
                 {
                     case 0:
                         Console.WriteLine("Case 0");
-                        Networking.SendMessage(ns, request.ToString());
+                        string finalRequest = request.ToString();
+                        string lastname = String.Empty,  firstname = String.Empty, address = String.Empty, phonenumber = String.Empty;
+                        if(GetInputString("Enter lastname:", ref lastname) && GetInputString("Enter firstname:", ref firstname) && GetInputString("Enter address:", ref address) && GetInputString("Enter phonenumber:", ref phonenumber))
+                        {
+
+                            Networking.SendMessage(ns, request.ToString());
+                        }
                         break;
                     case 1:
                         Console.WriteLine("Case 1");
@@ -82,5 +88,30 @@ public class TcpTimeClient
         }
 
         return 0;
+    }
+
+    public static bool GetInputString(string promt, ref string input)
+    {
+        bool done = false;
+        string tempInput = String.Empty;
+        while(!done)
+        {
+            tempInput = String.Empty;
+            Console.WriteLine(promt);
+            Console.WriteLine("If you want to abort enter: abort");
+            tempInput = Console.ReadLine();
+            if(tempInput != "")
+            {
+                done = true;
+            }
+            else if(tempInput == "abort")
+            {
+                tempInput = String.Empty;
+                return false;
+            }
+        }
+
+        input = tempInput;
+        return true;
     }
 }
