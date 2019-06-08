@@ -20,10 +20,17 @@ namespace server
             Console.Write("Waiting for connection...");
             TcpClient client = listener.AcceptTcpClient();
             Console.WriteLine("Connection accepted.");
+
             while (!done)
-            {
+            { 
                 NetworkStream ns = client.GetStream();
-                Console.WriteLine(Networking.ReadMessage(ns));
+                string message = Networking.ReadMessage(ns);
+                if (message == "end")
+                {
+                    done = true;
+                }
+
+                Console.WriteLine(message);
             }
             Console.WriteLine("stopping");
             listener.Stop();

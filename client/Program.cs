@@ -65,6 +65,7 @@ public class TcpTimeClient
                         break;
                     case 5:
                         Console.WriteLine("Case 5");
+                        Networking.SendMessage(ns, request.ToString());
                         done = true;
                         break;
                     default:
