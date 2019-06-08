@@ -44,13 +44,15 @@ public class TcpTimeClient
                 switch (choice)
                 {
                     case 0:
-                        Console.WriteLine("Case 0");
-                        string finalRequest = request.ToString();
-                        string lastname = String.Empty,  firstname = String.Empty, address = String.Empty, phonenumber = String.Empty;
-                        if(GetInputString("Enter lastname:", ref lastname) && GetInputString("Enter firstname:", ref firstname) && GetInputString("Enter address:", ref address) && GetInputString("Enter phonenumber:", ref phonenumber))
                         {
-                            finalRequest += "," + lastname + "," + firstname + "," + address + "," + phonenumber;
-                            Networking.SendMessage(ns, finalRequest.ToString());
+                            Console.WriteLine("Case 0");
+                            string finalRequest = request.ToString();
+                            string lastname = String.Empty, firstname = String.Empty, address = String.Empty, phonenumber = String.Empty;
+                            if (GetInputString("Enter lastname:", ref lastname) && GetInputString("Enter firstname:", ref firstname) && GetInputString("Enter address:", ref address) && GetInputString("Enter phonenumber:", ref phonenumber))
+                            {
+                                finalRequest += "," + lastname + "," + firstname + "," + address + "," + phonenumber;
+                                Networking.SendMessage(ns, finalRequest.ToString());
+                            }
                         }
                         break;
                     case 1:
@@ -62,12 +64,28 @@ public class TcpTimeClient
                         Networking.SendMessage(ns, request.ToString());
                         break;
                     case 3:
-                        Console.WriteLine("Case 3");
-                        Networking.SendMessage(ns, request.ToString());
+                        {
+                            Console.WriteLine("Case 3");
+                            string finalRequest = request.ToString();
+                            string lastname = String.Empty;
+                            if (GetInputString("Enter lastname:", ref lastname))
+                            {
+                                finalRequest += "," + lastname;
+                                Networking.SendMessage(ns, finalRequest.ToString());
+                            }
+                        }
                         break;
                     case 4:
-                        Console.WriteLine("Case 4");
-                        Networking.SendMessage(ns, request.ToString());
+                        {
+                            Console.WriteLine("Case 3");
+                            string finalRequest = request.ToString();
+                            string phonenumber = String.Empty;
+                            if (GetInputString("Enter phonenumber:", ref phonenumber))
+                            {
+                                finalRequest += "," + phonenumber;
+                                Networking.SendMessage(ns, finalRequest.ToString());
+                            }
+                        }
                         break;
                     case 5:
                         Console.WriteLine("Case 5");
