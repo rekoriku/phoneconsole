@@ -76,7 +76,7 @@ namespace server
             try
             {
                 Connect();
-                string query = "SELECT * FROM " + table_name + " WHERE " + column_name + " = " + value;
+                string query = "SELECT * FROM " + table_name + " WHERE " + column_name + " = '" + value + "'";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -84,11 +84,6 @@ namespace server
                     records.Add(new PhoneRecord((int)reader["id"], (string)reader["lastname"], (string)reader["firstname"], (string)reader["address"], (string)reader["phonenumber"]));
                 }
 
-                return records;
-            }
-            catch(Exception e)
-            {
-                //TODO: Handle exceptions and send error
                 return records;
             }
             finally
