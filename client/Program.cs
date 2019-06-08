@@ -56,8 +56,16 @@ public class TcpTimeClient
                         }
                         break;
                     case 1:
-                        Console.WriteLine("Case 1");
-                        Networking.SendMessage(ns, request.ToString());
+                        {
+                            Console.WriteLine("Case 1");
+                            string finalRequest = request.ToString();
+                            int index = -1;
+                            if (GetInputInt("Enter index: ", ref index))
+                            {
+                                finalRequest += "," + index;
+                                Networking.SendMessage(ns, finalRequest.ToString());
+                            }
+                        }
                         break;
                     case 2:
                         Console.WriteLine("Case 2");
