@@ -58,7 +58,7 @@ namespace server
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    records.Add(new PhoneRecord((int)reader["id"], (string)reader["lastname"], (string)["firstname"], (string)reader["address"], (string)reader["phonenumber"]));
+                    records.Add(new PhoneRecord((int)reader["id"], (string)reader["lastname"], (string)reader["firstname"], (string)reader["address"], (string)reader["phonenumber"]));
                 }
 
                 return records;
