@@ -40,8 +40,9 @@ namespace server
             return message.Split(",");
         }
 
-        public void AddRow(string[] arr)
+        public void AddRow(string message)
         {
+            string[] arr = Parse(message);
             Connect();
             string query = $"INSERT INTO ds19_phonenumbers (lastname, firstname, address, phonenumber) VALUES('{arr[1]}', '{arr[2]}', '{arr[3]}', '{arr[4]}'); ";
             MySqlCommand cmd = new MySqlCommand(query, conn);
@@ -49,8 +50,9 @@ namespace server
             Disconnect();
         }
 
-        public void DelRow(string[] arr)
+        public void DelRow(string message)
         {
+            string[] arr = Parse(message);
             Connect();
             string query = $"DELETE FROM ds19_phonenumbers WHERE id={arr[1]}; "; //comment
             MySqlCommand cmd = new MySqlCommand(query, conn);
