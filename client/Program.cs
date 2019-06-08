@@ -50,7 +50,7 @@ public class TcpTimeClient
                         if(GetInputString("Enter lastname:", ref lastname) && GetInputString("Enter firstname:", ref firstname) && GetInputString("Enter address:", ref address) && GetInputString("Enter phonenumber:", ref phonenumber))
                         {
                             finalRequest += "," + lastname + "," + firstname + "," + address + "," + phonenumber;
-                            Networking.SendMessage(ns, request.ToString());
+                            Networking.SendMessage(ns, finalRequest.ToString());
                         }
                         break;
                     case 1:
