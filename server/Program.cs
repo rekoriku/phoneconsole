@@ -16,16 +16,16 @@ namespace server
             TcpListener listener = new TcpListener(IPAddress.Any,portNum);
              
             listener.Start();
-             
+
+            Console.Write("Waiting for connection...");
+            TcpClient client = listener.AcceptTcpClient();
+            Console.WriteLine("Connection accepted.");
             while (!done)
             {
-                Console.Write("Waiting for connection...");
-                TcpClient client = listener.AcceptTcpClient();
-                Console.WriteLine("Connection accepted.");
                 NetworkStream ns = client.GetStream();
                 Console.WriteLine(Networking.ReadMessage(ns));
             }
-             
+            Console.WriteLine("stopping");
             listener.Stop();
 
             //Database db = new Database("niisku.lamk.fi", "laurtomi", "Koodaus1", "user_laurtomi");
