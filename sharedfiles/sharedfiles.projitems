@@ -9,6 +9,7 @@
     <Import_RootNamespace>sharedfiles</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)PhoneRecord.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Networking.cs" />
   </ItemGroup>
 </Project>

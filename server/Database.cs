@@ -47,8 +47,9 @@ namespace server
             Disconnect();
         }
 
-        public void GetFromColumnByValue(string table_name, string column_name, string value)
+        public List<PhoneRecord> GetFromColumnByValue(string table_name, string column_name, string value)
         {
+            List<PhoneRecord> records = new List<PhoneRecord>();
             try
             {
                 Connect();
@@ -57,12 +58,15 @@ namespace server
                 MySqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Console.WriteLine(reader["firstname"]);
+                    records.Add(new PhoneRecord((int)reader["id"], (string)reader["lastname"], (string)["firstname"], (string)reader["address"], (string)reader["phonenumber"]));
                 }
+
+                return records;
             }
             catch(Exception e)
             {
                 //TODO: Handle exceptions and send error
+                return records;
             }
             finally
             {
