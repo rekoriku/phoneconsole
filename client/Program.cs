@@ -14,7 +14,7 @@ public class TcpTimeClient
             TcpClient client = new TcpClient(hostName, portNum);
             NetworkStream ns = client.GetStream();
 
-            //Console.WriteLine(ReadMessage(ns));
+            //Console.WriteLine(Networking.ReadMessage(ns));
             //Networking.SendMessage(ns, "Hello Server!");
 
             bool done = false;
@@ -52,16 +52,27 @@ public class TcpTimeClient
                             {
                                 finalRequest += "," + lastname + "," + firstname + "," + address + "," + phonenumber;
                                 Networking.SendMessage(ns, finalRequest.ToString());
+                                Console.WriteLine(Networking.ReadMessage(ns));
                             }
                         }
                         break;
                     case 1:
-                        Console.WriteLine("Case 1");
-                        Networking.SendMessage(ns, request.ToString());
+                        {
+                            Console.WriteLine("Case 1");
+                            string finalRequest = request.ToString();
+                            int index = -1;
+                            if (GetInputInt("Enter index: ", ref index))
+                            {
+                                finalRequest += "," + index;
+                                Networking.SendMessage(ns, finalRequest.ToString());
+                                Console.WriteLine(Networking.ReadMessage(ns));
+                            }
+                        }
                         break;
                     case 2:
                         Console.WriteLine("Case 2");
                         Networking.SendMessage(ns, request.ToString());
+                        Console.WriteLine(Networking.ReadMessage(ns));
                         break;
                     case 3:
                         {
@@ -72,6 +83,7 @@ public class TcpTimeClient
                             {
                                 finalRequest += "," + lastname;
                                 Networking.SendMessage(ns, finalRequest.ToString());
+                                Console.WriteLine(Networking.ReadMessage(ns));
                             }
                         }
                         break;
@@ -84,6 +96,7 @@ public class TcpTimeClient
                             {
                                 finalRequest += "," + phonenumber;
                                 Networking.SendMessage(ns, finalRequest.ToString());
+                                Console.WriteLine(Networking.ReadMessage(ns));
                             }
                         }
                         break;
