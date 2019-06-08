@@ -34,14 +34,14 @@ namespace server
                 {
                     case "add_rows":
                         {
-                            db.AddRow(message);
-                            Networking.SendMessage(ns, "Row added");
+                            int result = db.AddRow(message);
+                            Networking.SendMessage(ns, result + " rows added!");
                             break;
                         }
                     case "delete_rows":
                         {
-                            db.DelRow(message);
-                            Networking.SendMessage(ns, "Row deleted");
+                            int result = db.DelRow(message);
+                            Networking.SendMessage(ns, result + " rows deleted!");
                             break;
                         }
                     case "search_all_rows":
