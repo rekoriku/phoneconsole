@@ -46,5 +46,28 @@ namespace server
             }
             Disconnect();
         }
+
+        public void GetFromColumnByValue(string table_name, string column_name, string value)
+        {
+            try
+            {
+                Connect();
+                string query = "SELECT * FROM " + table_name + " WHERE " + column_name + " = " + value;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Console.WriteLine(reader["firstname"]);
+                }
+            }
+            catch(Exception e)
+            {
+                //TODO: Handle exceptions and send error
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
     }
 }
