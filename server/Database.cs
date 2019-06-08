@@ -48,6 +48,7 @@ namespace server
             cmd.ExecuteNonQuery();
             Disconnect();
         }
+
         public void GetAllEntries(string table_name)
         {
             Connect();
