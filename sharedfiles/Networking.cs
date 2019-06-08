@@ -8,10 +8,10 @@ enum RequestType
 {
     add_rows = 0,
     delete_rows = 1,
-    seach_all_rows = 2,
+    search_all_rows = 2,
     search_rows_by_name = 3,
-    seach_rows_by_number = 4,
-    end = 5,
+    search_rows_by_number = 4,
+    end = 5
 }
 
 static class Networking
