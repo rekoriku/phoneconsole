@@ -100,14 +100,14 @@ public class TcpTimeClient
             Console.WriteLine(promt);
             Console.WriteLine("If you want to abort enter: abort");
             tempInput = Console.ReadLine();
-            if(tempInput != "")
-            {
-                done = true;
-            }
-            else if(tempInput == "abort")
+            if(tempInput == "abort")
             {
                 tempInput = String.Empty;
                 return false;
+            }
+            else if (tempInput != "")
+            {
+                done = true;
             }
         }
 
