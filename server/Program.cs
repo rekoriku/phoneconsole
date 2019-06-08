@@ -16,14 +16,20 @@ namespace server
             TcpListener listener = new TcpListener(IPAddress.Any,portNum);
              
             listener.Start();
-             
+            Console.Write("Waiting for connection...");
+            TcpClient client = listener.AcceptTcpClient();
+            Console.WriteLine("Connection accepted.");
+
             while (!done)
-            {
-                Console.Write("Waiting for connection...");
-                TcpClient client = listener.AcceptTcpClient();
-                Console.WriteLine("Connection accepted.");
+            { 
                 NetworkStream ns = client.GetStream();
-                Console.WriteLine(Networking.ReadMessage(ns));
+                string message = Networking.ReadMessage(ns);
+                if (message == "end")
+                {
+                    done = true;
+                }
+
+                Console.WriteLine(message);
             }
              
             listener.Stop();
