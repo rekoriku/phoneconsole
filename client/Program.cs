@@ -125,7 +125,7 @@ public class TcpTimeClient
             }
             else if (tempInput != "")
             {
-                continue;
+                done = true;
             }
         }
 
