@@ -39,12 +39,12 @@ namespace server
 //             listener.Stop();
 
             Database db = new Database("niisku.lamk.fi", "laurtomi", "Koodaus1", "user_laurtomi");
-            List<PhoneRecord> records = db.GetFromColumnByValue("ds19_phonenumbers", "firstname", "Tomi");
+            //List<PhoneRecord> records = db.GetFromColumnByValue("ds19_phonenumbers", "firstname", "Tomi");
+            List<PhoneRecord> records = db.GetAllEntries("ds19_phonenumbers");
             foreach (var record in records)
             {
                 Console.WriteLine(record.ToString());
             }
-            //db.GetAllEntries("ds19_phonenumbers ");
 
 
             return 0;

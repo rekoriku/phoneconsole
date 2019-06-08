@@ -57,17 +57,26 @@ namespace server
             cmd.ExecuteNonQuery();
             Disconnect();
         }
-        public void GetAllEntries(string table_name)
+        public List<PhoneRecord> GetAllEntries(string table_name)
         {
-            Connect();
-            string query = "SELECT * FROM " + table_name;
-            MySqlCommand cmd = new MySqlCommand(query, conn);
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
+            List<PhoneRecord> records = new List<PhoneRecord>();
+            try
             {
-                Console.WriteLine(reader["firstname"]);
+                Connect();
+                string query = "SELECT * FROM " + table_name;
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    records.Add(new PhoneRecord((int)reader["id"], (string)reader["lastname"], (string)reader["firstname"], (string)reader["address"], (string)reader["phonenumber"]));
+                }
+
+                return records;
             }
-            Disconnect();
+            finally
+            {
+                Disconnect();
+            }
         }
 
         public List<PhoneRecord> GetFromColumnByValue(string table_name, string column_name, string value)
