@@ -34,6 +34,20 @@ namespace server
             conn.Close();
         }
 
+
+        public string[] Parse(string message)
+        {
+            return message.Split(",");
+        }
+
+        public void AddRow(string[] arr)
+        {
+            Connect();
+            string query = $"INSERT INTO ds19_phonenumbers (lastname, firstname, address, phonenumber) VALUES('{arr[1]}', '{arr[2]}', '{arr[3]}', '{arr[4]}'); ";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            Disconnect();
+        }
         public void GetAllEntries(string table_name)
         {
             Connect();

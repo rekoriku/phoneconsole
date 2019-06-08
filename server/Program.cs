@@ -8,11 +8,11 @@ namespace server
     public class TcpTimeServer
     {
         private const int portNum = 5500;
-
+        
         public static int Main(String[] args)
         {
             bool done = false;
-             
+            Database db = new Database("niisku.lamk.fi", "laurtomi", "Koodaus1", "user_laurtomi");
             TcpListener listener = new TcpListener(IPAddress.Any,portNum);
              
             listener.Start();
@@ -25,6 +25,8 @@ namespace server
             { 
                 NetworkStream ns = client.GetStream();
                 string message = Networking.ReadMessage(ns);
+                //db.AddRow(db.Parse(message));
+                //Console.WriteLine();
                 if (message == "end")
                 {
                     done = true;
