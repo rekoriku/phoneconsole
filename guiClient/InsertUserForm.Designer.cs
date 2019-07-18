@@ -29,29 +29,29 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.submitBtn = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.numberBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.addressBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lastnameBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.firstnameBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.submitBtn);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.numberBox);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.addressBox);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.lastnameBox);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.firstnameBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(283, 151);
@@ -59,15 +59,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add User";
             // 
-            // button1
+            // submitBtn
             // 
-            this.button1.Location = new System.Drawing.Point(48, 122);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Submit";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.submitBtn.Location = new System.Drawing.Point(48, 122);
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.Size = new System.Drawing.Size(193, 23);
+            this.submitBtn.TabIndex = 8;
+            this.submitBtn.Text = "Submit";
+            this.submitBtn.UseVisualStyleBackColor = true;
+            this.submitBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -78,12 +78,12 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Phone number";
             // 
-            // textBox4
+            // numberBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(91, 97);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(180, 20);
-            this.textBox4.TabIndex = 6;
+            this.numberBox.Location = new System.Drawing.Point(91, 97);
+            this.numberBox.Name = "numberBox";
+            this.numberBox.Size = new System.Drawing.Size(180, 20);
+            this.numberBox.TabIndex = 6;
             // 
             // label3
             // 
@@ -94,12 +94,12 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Address";
             // 
-            // textBox3
+            // addressBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(91, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(180, 20);
-            this.textBox3.TabIndex = 4;
+            this.addressBox.Location = new System.Drawing.Point(91, 71);
+            this.addressBox.Name = "addressBox";
+            this.addressBox.Size = new System.Drawing.Size(180, 20);
+            this.addressBox.TabIndex = 4;
             // 
             // label2
             // 
@@ -110,12 +110,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Lastname";
             // 
-            // textBox2
+            // lastnameBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(91, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 20);
-            this.textBox2.TabIndex = 2;
+            this.lastnameBox.Location = new System.Drawing.Point(91, 45);
+            this.lastnameBox.Name = "lastnameBox";
+            this.lastnameBox.Size = new System.Drawing.Size(180, 20);
+            this.lastnameBox.TabIndex = 2;
             // 
             // label1
             // 
@@ -126,12 +126,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Firstname";
             // 
-            // textBox1
+            // firstnameBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(91, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 20);
-            this.textBox1.TabIndex = 0;
+            this.firstnameBox.Location = new System.Drawing.Point(91, 19);
+            this.firstnameBox.Name = "firstnameBox";
+            this.firstnameBox.Size = new System.Drawing.Size(180, 20);
+            this.firstnameBox.TabIndex = 0;
             // 
             // InsertUserForm
             // 
@@ -151,13 +151,13 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox firstnameBox;
+        private System.Windows.Forms.Button submitBtn;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox numberBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox addressBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox lastnameBox;
     }
 }

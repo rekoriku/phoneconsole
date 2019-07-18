@@ -20,13 +20,37 @@ namespace guiClient
         private void Button1_Click(object sender, EventArgs e)
         {
             GetForm getForm = new GetForm();
-
             getForm.ShowDialog();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void insertToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool success = false;
+            string firstname, lastname, address, phone_number;
+            InsertUserForm insertUserForm = new InsertUserForm();
+            if (insertUserForm.ShowDialog() == DialogResult.OK)
+            {
+                success = true;
+                //Read the contents of testDialog's TextBox.
+                //this.txtResult.Text = testDialog.TextBox1.Text;
+                firstname = insertUserForm.firstnameBox.Text;
+            }
+            else
+            {
+                success = false;
+                //this.txtResult.Text = "Cancelled";
+            }
+            insertUserForm.Dispose();
+
+            if(success)
+            {
+                //Process data
+            }
         }
     }
 }
