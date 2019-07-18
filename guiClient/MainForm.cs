@@ -36,9 +36,10 @@ namespace guiClient
             if (insertUserForm.ShowDialog() == DialogResult.OK)
             {
                 success = true;
-                //Read the contents of testDialog's TextBox.
-                //this.txtResult.Text = testDialog.TextBox1.Text;
-                firstname = insertUserForm.firstnameBox.Text;
+                firstname = insertUserForm.GetFirstName();
+                lastname = insertUserForm.GetLastName();
+                address = insertUserForm.GetAddress();
+                phone_number = insertUserForm.GetPhoneNumber();
             }
             else
             {

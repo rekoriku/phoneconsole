@@ -17,6 +17,26 @@ namespace guiClient
             InitializeComponent();
         }
 
+        public string GetFirstName()
+        {
+            return firstnameBox.Text;
+        }
+
+        public string GetLastName()
+        {
+            return lastnameBox.Text;
+        }
+
+        public string GetAddress()
+        {
+            return addressBox.Text;
+        }
+
+        public string GetPhoneNumber()
+        {
+            return numberBox.Text;
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 
