@@ -16,5 +16,15 @@ namespace guiClient
         {
             InitializeComponent();
         }
+
+        public void SetHeader(string value)
+        {
+            headerBox.Text = value;
+        }
+
+        private void submitBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -39,7 +39,7 @@ namespace guiClient
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.OK;
         }
     }
 }

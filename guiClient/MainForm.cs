@@ -44,14 +44,28 @@ namespace guiClient
             else
             {
                 success = false;
-                //this.txtResult.Text = "Cancelled";
             }
             insertUserForm.Dispose();
 
-            if(success)
+            if (success)
             {
                 //Process data
             }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetForm getForm = new GetForm();
+            getForm.SetHeader("Enter Index:");
+            if (getForm.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+            else
+            {
+
+            }
+            getForm.Dispose();
         }
     }
 }
