@@ -59,13 +59,18 @@ namespace guiClient
             getForm.SetHeader("Enter Index:");
             if (getForm.ShowDialog() == DialogResult.OK)
             {
-
+                richTextBox1.Text = "Success";
             }
             else
             {
-
+                richTextBox1.Text = "Failure";
             }
             getForm.Dispose();
+        }
+
+        private void RichTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

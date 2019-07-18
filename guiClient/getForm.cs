@@ -24,7 +24,7 @@ namespace guiClient
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.OK;
         }
     }
 }
