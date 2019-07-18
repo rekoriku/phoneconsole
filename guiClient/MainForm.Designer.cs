@@ -33,6 +33,9 @@
             this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.getAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +53,10 @@
             // 
             this.actionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.insertToolStripMenuItem,
-            this.deleteToolStripMenuItem});
+            this.deleteToolStripMenuItem,
+            this.getAllToolStripMenuItem,
+            this.getNameToolStripMenuItem,
+            this.getNumberToolStripMenuItem});
             this.actionsToolStripMenuItem.Name = "actionsToolStripMenuItem";
             this.actionsToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
             this.actionsToolStripMenuItem.Text = "Actions";
@@ -82,6 +88,27 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
+            // getAllToolStripMenuItem
+            // 
+            this.getAllToolStripMenuItem.Name = "getAllToolStripMenuItem";
+            this.getAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.getAllToolStripMenuItem.Text = "Get All";
+            this.getAllToolStripMenuItem.Click += new System.EventHandler(this.getAllToolStripMenuItem_Click);
+            // 
+            // getNameToolStripMenuItem
+            // 
+            this.getNameToolStripMenuItem.Name = "getNameToolStripMenuItem";
+            this.getNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.getNameToolStripMenuItem.Text = "Get Name";
+            this.getNameToolStripMenuItem.Click += new System.EventHandler(this.getNameToolStripMenuItem_Click);
+            // 
+            // getNumberToolStripMenuItem
+            // 
+            this.getNumberToolStripMenuItem.Name = "getNumberToolStripMenuItem";
+            this.getNumberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.getNumberToolStripMenuItem.Text = "Get Number";
+            this.getNumberToolStripMenuItem.Click += new System.EventHandler(this.getNumberToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,5 +133,8 @@
         private System.Windows.Forms.ToolStripMenuItem insertToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem getAllToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getNameToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getNumberToolStripMenuItem;
     }
 }

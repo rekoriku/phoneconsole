@@ -72,5 +72,40 @@ namespace guiClient
         {
 
         }
+
+        private void getAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void getNameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetForm getForm = new GetForm();
+            getForm.SetHeader("Enter Name:");
+            if (getForm.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.Text = "Success";
+            }
+            else
+            {
+                richTextBox1.Text = "Failure";
+            }
+            getForm.Dispose();
+        }
+
+        private void getNumberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetForm getForm = new GetForm();
+            getForm.SetHeader("Enter Number:");
+            if (getForm.ShowDialog() == DialogResult.OK)
+            {
+                richTextBox1.Text = "Success";
+            }
+            else
+            {
+                richTextBox1.Text = "Failure";
+            }
+            getForm.Dispose();
+        }
     }
 }
