@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "server", "..\server\server.
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "common", "..\sharedfiles\common.shproj", "{180A427C-2F22-424E-B950-8F7DE3454D37}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "guiClient", "..\guiClient\guiClient.csproj", "{02C0C6AD-142A-428E-A9B8-074659972ECE}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		..\sharedfiles\sharedfiles.projitems*{180a427c-2f22-424e-b950-8f7de3454d37}*SharedItemsImports = 13
@@ -26,6 +28,10 @@ Global
 		{318C68F0-BB15-4F20-A678-AA145A2B81AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{318C68F0-BB15-4F20-A678-AA145A2B81AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{318C68F0-BB15-4F20-A678-AA145A2B81AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C0C6AD-142A-428E-A9B8-074659972ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C0C6AD-142A-428E-A9B8-074659972ECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C0C6AD-142A-428E-A9B8-074659972ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C0C6AD-142A-428E-A9B8-074659972ECE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

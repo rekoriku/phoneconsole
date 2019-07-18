@@ -10,17 +10,18 @@ using System.Windows.Forms;
 
 namespace guiClient
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            getForm formi = new getForm();
-            formi.ShowDialog();
+            GetForm getForm = new GetForm();
+
+            getForm.ShowDialog();
         }
     }
 }

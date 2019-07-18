@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace guiClient
 {
-    public partial class getForm : Form
+    public partial class GetForm : Form
     {
-        public getForm()
+        public GetForm()
         {
             InitializeComponent();
         }
