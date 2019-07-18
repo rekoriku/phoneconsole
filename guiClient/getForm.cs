@@ -22,6 +22,11 @@ namespace guiClient
             headerBox.Text = value;
         }
 
+        public void SetFormHeader(string value)
+        {
+            this.Text = value;
+        }
+
         private void submitBtn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;

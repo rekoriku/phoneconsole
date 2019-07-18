@@ -140,7 +140,7 @@
             this.ClientSize = new System.Drawing.Size(313, 178);
             this.Controls.Add(this.groupBox1);
             this.Name = "InsertUserForm";
-            this.Text = "InsertUserForm";
+            this.Text = "Insert";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

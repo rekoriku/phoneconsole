@@ -56,6 +56,7 @@ namespace guiClient
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GetForm getForm = new GetForm();
+            getForm.SetFormHeader("Delete Form");
             getForm.SetHeader("Enter Index:");
             if (getForm.ShowDialog() == DialogResult.OK)
             {

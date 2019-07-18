@@ -80,7 +80,7 @@
             this.ClientSize = new System.Drawing.Size(301, 105);
             this.Controls.Add(this.headerBox);
             this.Name = "GetForm";
-            this.Text = "getForm";
+            this.Text = "Get";
             this.headerBox.ResumeLayout(false);
             this.headerBox.PerformLayout();
             this.ResumeLayout(false);
