@@ -72,6 +72,7 @@ namespace guiClient
         {
             bool success = false;
             string firstname, lastname, address, phone_number;
+            firstname = lastname = address = phone_number = "";
             InsertUserForm insertUserForm = new InsertUserForm();
             if (insertUserForm.ShowDialog() == DialogResult.OK)
             {
@@ -89,7 +90,13 @@ namespace guiClient
 
             if (success)
             {
-                //Process data
+                string finalRequest = "add_rows";
+                if (firstname != "" && lastname != "" && address != "" && phone_number != "")
+                {
+                    finalRequest += "," + lastname + "," + firstname + "," + address + "," + phone_number;
+                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                    richTextBox1.Text = Networking.ReadMessage(conn.GetNetworkStream());
+                }
             }
         }
 
@@ -116,7 +123,15 @@ namespace guiClient
 
         private void getAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Networking.SendMessage(conn.GetNetworkStream(), "search_all_rows");
+            string result = Networking.ReadMessage(conn.GetNetworkStream());
+            result = result.Replace(",id:", ";id:");
+            string[] result_arr = result.Split(';');
+            richTextBox1.Text = "Fetch result:";
+            foreach (string val in result_arr)
+            {
+                richTextBox1.Text += Environment.NewLine + val;
+            }
         }
 
         private void getNameToolStripMenuItem_Click(object sender, EventArgs e)
