@@ -14,10 +14,10 @@ namespace guiClient
     {
         private Connection conn;
  
-        public MainForm()
+        public MainForm(Connection new_conn)
         {
             InitializeComponent();
-            conn = new Connection();
+            conn = new_conn;
             if(conn.GetConnectionStatus())
             {
                 richTextBox1.Text = "Connection successful!";
@@ -30,7 +30,6 @@ namespace guiClient
         private void MainForm_FormClosing(Object sender, FormClosedEventArgs e)
         {
             Networking.SendMessage(conn.GetNetworkStream(), "end");
-
         }
         private void Button1_Click(object sender, EventArgs e)
         {

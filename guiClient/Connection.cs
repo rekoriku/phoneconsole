@@ -7,7 +7,7 @@ using System.Net.Sockets;
 
 namespace guiClient
 {
-    class Connection
+    public class Connection
     {
         private const int portNum = 5500;
         private const string hostName = "localhost";
@@ -26,15 +26,6 @@ namespace guiClient
             {
                 connected = false;
             }
-        }
-
-        ~Connection()
-        {
-//             if(connected)
-//             {
-//                 Networking.SendMessage(ns, "end");
-//                 client.Close();
-//             }
         }
 
         public TcpClient GetTcpClient()
