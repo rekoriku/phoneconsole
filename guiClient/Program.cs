@@ -15,20 +15,9 @@ namespace guiClient
         [STAThread]
         static void Main()
         {
-            MainForm main_form;
-            try
-            {
-                main_form = new MainForm();
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(main_form);
-            }
-            catch(SocketException e)
-            {
-                return 1;
-            }
-
-
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new MainForm());
         }
     }
 }
