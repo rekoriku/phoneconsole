@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
 
 namespace guiClient
 {
     public partial class MainForm : Form
     {
         private Connection conn;
- 
+        bool isDataSaved = false;
         public MainForm(Connection new_conn)
         {
             InitializeComponent();
@@ -26,10 +27,35 @@ namespace guiClient
             {
                 richTextBox1.Text = "Failed to connect, restart!";
             }
+
+            OtherInitialize();
+
         }
-        private void MainForm_FormClosing(Object sender, FormClosedEventArgs e)
+
+        private void OtherInitialize()
         {
-            Networking.SendMessage(conn.GetNetworkStream(), "end");
+            this.Closing += new CancelEventHandler(this.MainForm_Closing);
+            // Exchange commented line and note the difference.
+          
+            this.isDataSaved = true;
+            //this.isDataSaved = false;
+        }
+        private void MainForm_Closing(Object sender, CancelEventArgs e)
+        {
+            if (!isDataSaved)
+            {
+                e.Cancel = true;
+                //MessageBox.Show("You must save first.");
+            }
+            else
+            {
+                e.Cancel = false;
+                TcpClient client = conn.GetTcpClient();
+                Networking.SendMessage(conn.GetNetworkStream(), "end");
+                client.Client.Shutdown(SocketShutdown.Both);
+                //MessageBox.Show("Goodbye.");
+            }
+
         }
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -163,7 +189,7 @@ namespace guiClient
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            
+         
         }
     }
 }

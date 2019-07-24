@@ -15,8 +15,7 @@ namespace server
             bool done = false;
             Database db = new Database("niisku.lamk.fi", "laurtomi", "Koodaus1", "user_laurtomi");
             TcpListener listener = new TcpListener(IPAddress.Any, portNum);
-            try
-            {
+
                 listener.Start();
 
                 Console.Write("Waiting for connection...");
@@ -83,11 +82,8 @@ namespace server
                 //{
                 //    Console.WriteLine(record.ToString());
                 //}
-            }
-            catch (Exception e)
-            {
-                listener.Stop();
-            }
+        
+ 
             return 0;
         }
 
