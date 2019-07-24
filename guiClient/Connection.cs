@@ -28,6 +28,12 @@ namespace guiClient
             }
         }
 
+        ~Connection()
+        {
+            Networking.SendMessage(ns, request.ToString());
+            client.Close();
+        }
+
         public TcpClient GetTcpClient()
         {
             return client;
