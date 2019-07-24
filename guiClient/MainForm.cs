@@ -52,7 +52,15 @@ namespace guiClient
                 e.Cancel = false;
                 TcpClient client = conn.GetTcpClient();
                 Networking.SendMessage(conn.GetNetworkStream(), "end");
-                client.Client.Shutdown(SocketShutdown.Both);
+                if (client != null && client.Client.Connected)
+                {
+                    client.Client.Shutdown(SocketShutdown.Both);
+                }
+         
+                    
+                
+
+
                 //MessageBox.Show("Goodbye.");
             }
 
