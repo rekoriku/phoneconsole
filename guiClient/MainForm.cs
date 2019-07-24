@@ -114,18 +114,38 @@ namespace guiClient
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bool success = false;
+            int id = -1;
             GetForm getForm = new GetForm();
             getForm.SetFormHeader("Delete");
             getForm.SetHeader("Enter Index:");
+            getForm.SetAcceptOnlyNumbers(true);
             if (getForm.ShowDialog() == DialogResult.OK)
             {
-                richTextBox1.Text = "Success";
+                Int32.TryParse(getForm.GetValue(), out id);
+                success = true;
             }
             else
             {
-                richTextBox1.Text = "Failure";
+                success = false;
             }
             getForm.Dispose();
+
+            if(success)
+            {
+                string finalRequest = "delete_rows";
+                if (id != -1)
+                {
+                    finalRequest += "," + id;
+                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                    string result = Networking.ReadMessage(conn.GetNetworkStream());
+                    richTextBox1.Text = result;
+                }
+                else
+                {
+                    richTextBox1.Text = "Invalid input!";
+                }
+            }
         }
 
         private void RichTextBox1_TextChanged(object sender, EventArgs e)

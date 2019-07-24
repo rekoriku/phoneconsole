@@ -72,6 +72,7 @@
             this.valueBox.Name = "valueBox";
             this.valueBox.Size = new System.Drawing.Size(193, 20);
             this.valueBox.TabIndex = 0;
+            this.valueBox.TextChanged += new System.EventHandler(this.valueBox_TextChanged);
             // 
             // GetForm
             // 
