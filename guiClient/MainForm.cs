@@ -7,13 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Sockets;
 
 namespace guiClient
 {
     public partial class MainForm : Form
     {
+        private const int portNum = 5500;
+        private const string hostName = "localhost";
+        private TcpClient client;
+        private NetworkStream ns;
+
         public MainForm()
         {
+            try
+            {
+                client = new TcpClient(hostName, portNum);
+                ns = client.GetStream();
+            }
+            catch(Exception e)
+            {
+                throw new SocketException();
+            }
+
             InitializeComponent();
         }
 
@@ -56,7 +72,7 @@ namespace guiClient
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GetForm getForm = new GetForm();
-            getForm.SetFormHeader("Delete Form");
+            getForm.SetFormHeader("Delete");
             getForm.SetHeader("Enter Index:");
             if (getForm.ShowDialog() == DialogResult.OK)
             {
