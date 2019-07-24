@@ -71,6 +71,10 @@ namespace guiClient
                     Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
                     richTextBox1.Text = Networking.ReadMessage(conn.GetNetworkStream());
                 }
+                else
+                {
+                    richTextBox1.Text = "Invalid input!";
+                }
             }
         }
 
@@ -110,17 +114,36 @@ namespace guiClient
 
         private void getNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bool success = false;
+            string lastname = "";
             GetForm getForm = new GetForm();
             getForm.SetHeader("Enter Name:");
             if (getForm.ShowDialog() == DialogResult.OK)
             {
-                richTextBox1.Text = "Success";
+                success = true;
+                lastname = getForm.GetValue();
             }
             else
             {
-                richTextBox1.Text = "Failure";
+                success = false;
             }
             getForm.Dispose();
+
+            if(success)
+            {
+                string finalRequest = "search_rows_by_name";
+                if (lastname != "")
+                {
+                    finalRequest += "," + lastname;
+                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                    richTextBox1.Text = "Fetch result:";
+                    richTextBox1.Text += Environment.NewLine + Networking.ReadMessage(conn.GetNetworkStream());
+                }
+                else
+                {
+                    richTextBox1.Text = "Invalid input!";
+                }
+            }
         }
 
         private void getNumberToolStripMenuItem_Click(object sender, EventArgs e)

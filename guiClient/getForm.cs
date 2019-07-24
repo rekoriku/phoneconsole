@@ -27,6 +27,11 @@ namespace guiClient
             this.Text = value;
         }
 
+        public string GetValue()
+        {
+            return valueBox.Text;
+        }
+
         private void submitBtn_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
