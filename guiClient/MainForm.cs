@@ -162,8 +162,16 @@ namespace guiClient
                 {
                     finalRequest += "," + lastname;
                     Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                    string result = Networking.ReadMessage(conn.GetNetworkStream());
                     richTextBox1.Text = "Fetch result:";
-                    richTextBox1.Text += Environment.NewLine + Networking.ReadMessage(conn.GetNetworkStream());
+                    if(result != "null")
+                    {
+                        richTextBox1.Text += Environment.NewLine + result;
+                    }
+                    else
+                    {
+                        richTextBox1.Text += Environment.NewLine + "No results found!";
+                    }
                 }
                 else
                 {

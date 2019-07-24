@@ -53,13 +53,27 @@ namespace server
                         case "search_rows_by_name":
                             {
                                 List<PhoneRecord> records = db.GetFromColumnByValue("ds19_phonenumbers", "lastname", messageArr[1]);
-                                Networking.SendMessage(ns, String.Join(",", records));
+                                if(records.Count == 0)
+                                {
+                                    Networking.SendMessage(ns, String.Join(",", "null"));
+                                }
+                                else
+                                {
+                                    Networking.SendMessage(ns, String.Join(",", records));
+                                }
                                 break;
                             }
                         case "search_rows_by_number":
                             {
                                 List<PhoneRecord> records = db.GetFromColumnByValue("ds19_phonenumbers", "phonenumber", messageArr[1]);
-                                Networking.SendMessage(ns, String.Join(",", records));
+                                if (records.Count == 0)
+                                {
+                                    Networking.SendMessage(ns, String.Join(",", "null"));
+                                }
+                                else
+                                {
+                                    Networking.SendMessage(ns, String.Join(",", records));
+                                }
                                 break;
                             }
 
