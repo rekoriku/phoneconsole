@@ -97,7 +97,15 @@ namespace guiClient
 
         private void getAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Networking.SendMessage(conn.GetNetworkStream(), "search_all_rows");
+            string result = Networking.ReadMessage(conn.GetNetworkStream());
+            result = result.Replace(",id:", ";id:");
+            string[] result_arr = result.Split(';');
+            richTextBox1.Text = "Fetch result:";
+            foreach (string val in result_arr)
+            {
+                richTextBox1.Text += Environment.NewLine + val;
+            }
         }
 
         private void getNameToolStripMenuItem_Click(object sender, EventArgs e)
