@@ -13,7 +13,7 @@ namespace guiClient
         private const string hostName = "localhost";
         private TcpClient client;
         private NetworkStream ns;
-        bool connected = false;
+        private bool connected = false;
         public Connection()
         {
             try
@@ -36,6 +36,11 @@ namespace guiClient
         public NetworkStream GetNetworkStream()
         {
             return ns;
+        }
+
+        public bool GetConnectionStatus()
+        {
+            return connected;
         }
     }
 }
