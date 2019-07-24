@@ -32,10 +32,11 @@
             this.actionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.insertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.getAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,16 +65,37 @@
             // insertToolStripMenuItem
             // 
             this.insertToolStripMenuItem.Name = "insertToolStripMenuItem";
-            this.insertToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.insertToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.insertToolStripMenuItem.Text = "Insert";
             this.insertToolStripMenuItem.Click += new System.EventHandler(this.insertToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // getAllToolStripMenuItem
+            // 
+            this.getAllToolStripMenuItem.Name = "getAllToolStripMenuItem";
+            this.getAllToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.getAllToolStripMenuItem.Text = "Get All";
+            this.getAllToolStripMenuItem.Click += new System.EventHandler(this.getAllToolStripMenuItem_Click);
+            // 
+            // getNameToolStripMenuItem
+            // 
+            this.getNameToolStripMenuItem.Name = "getNameToolStripMenuItem";
+            this.getNameToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.getNameToolStripMenuItem.Text = "Get Name";
+            this.getNameToolStripMenuItem.Click += new System.EventHandler(this.getNameToolStripMenuItem_Click);
+            // 
+            // getNumberToolStripMenuItem
+            // 
+            this.getNumberToolStripMenuItem.Name = "getNumberToolStripMenuItem";
+            this.getNumberToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.getNumberToolStripMenuItem.Text = "Get Number";
+            this.getNumberToolStripMenuItem.Click += new System.EventHandler(this.getNumberToolStripMenuItem_Click);
             // 
             // richTextBox1
             // 
@@ -88,32 +110,22 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
-            // getAllToolStripMenuItem
+            // button1
             // 
-            this.getAllToolStripMenuItem.Name = "getAllToolStripMenuItem";
-            this.getAllToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.getAllToolStripMenuItem.Text = "Get All";
-            this.getAllToolStripMenuItem.Click += new System.EventHandler(this.getAllToolStripMenuItem_Click);
-            // 
-            // getNameToolStripMenuItem
-            // 
-            this.getNameToolStripMenuItem.Name = "getNameToolStripMenuItem";
-            this.getNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.getNameToolStripMenuItem.Text = "Get Name";
-            this.getNameToolStripMenuItem.Click += new System.EventHandler(this.getNameToolStripMenuItem_Click);
-            // 
-            // getNumberToolStripMenuItem
-            // 
-            this.getNumberToolStripMenuItem.Name = "getNumberToolStripMenuItem";
-            this.getNumberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.getNumberToolStripMenuItem.Text = "Get Number";
-            this.getNumberToolStripMenuItem.Click += new System.EventHandler(this.getNumberToolStripMenuItem_Click);
+            this.button1.Location = new System.Drawing.Point(494, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -136,5 +148,6 @@
         private System.Windows.Forms.ToolStripMenuItem getAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getNumberToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

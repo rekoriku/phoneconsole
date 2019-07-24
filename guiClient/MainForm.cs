@@ -13,7 +13,7 @@ namespace guiClient
     public partial class MainForm : Form
     {
         private Connection conn;
-
+ 
         public MainForm()
         {
             InitializeComponent();
@@ -27,7 +27,11 @@ namespace guiClient
                 richTextBox1.Text = "Failed to connect, restart!";
             }
         }
-
+        private void MainForm_FormClosed(Object sender, FormClosedEventArgs e)
+        {
+            
+            
+        }
         private void Button1_Click(object sender, EventArgs e)
         {
             GetForm getForm = new GetForm();
@@ -118,6 +122,11 @@ namespace guiClient
                 richTextBox1.Text = "Failure";
             }
             getForm.Dispose();
+        }
+
+        private void Button1_Click_1(object sender, EventArgs e)
+        {
+            Networking.SendMessage(conn.GetNetworkStream(), "end");
         }
     }
 }
