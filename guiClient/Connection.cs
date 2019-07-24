@@ -30,8 +30,11 @@ namespace guiClient
 
         ~Connection()
         {
-            Networking.SendMessage(ns, request.ToString());
-            client.Close();
+            if(connected)
+            {
+                Networking.SendMessage(ns, "end");
+                client.Close();
+            }
         }
 
         public TcpClient GetTcpClient()
