@@ -12,9 +12,20 @@ namespace guiClient
 {
     public partial class MainForm : Form
     {
+        private Connection conn;
+
         public MainForm()
         {
             InitializeComponent();
+            conn = new Connection();
+            if(conn.GetConnectionStatus())
+            {
+                richTextBox1.Text = "Connection successful!";
+            }
+            else
+            {
+                richTextBox1.Text = "Failed to connect, restart!";
+            }
         }
 
         private void Button1_Click(object sender, EventArgs e)
