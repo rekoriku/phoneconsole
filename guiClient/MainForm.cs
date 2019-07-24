@@ -46,6 +46,7 @@ namespace guiClient
         {
             bool success = false;
             string firstname, lastname, address, phone_number;
+            firstname = lastname = address = phone_number = "";
             InsertUserForm insertUserForm = new InsertUserForm();
             if (insertUserForm.ShowDialog() == DialogResult.OK)
             {
@@ -63,7 +64,13 @@ namespace guiClient
 
             if (success)
             {
-                //Process data
+                string finalRequest = "add_rows";
+                if (firstname != "" && lastname != "" && address != "" && phone_number != "")
+                {
+                    finalRequest += "," + lastname + "," + firstname + "," + address + "," + phone_number;
+                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                    richTextBox1.Text = Networking.ReadMessage(conn.GetNetworkStream());
+                }
             }
         }
 
