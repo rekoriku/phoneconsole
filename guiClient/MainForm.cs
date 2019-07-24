@@ -190,17 +190,44 @@ namespace guiClient
 
         private void getNumberToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            bool success = false;
+            string number = "";
             GetForm getForm = new GetForm();
             getForm.SetHeader("Enter Number:");
             if (getForm.ShowDialog() == DialogResult.OK)
             {
-                richTextBox1.Text = "Success";
+                success = true;
+                number = getForm.GetValue();
             }
             else
             {
-                richTextBox1.Text = "Failure";
+                success = false;
             }
             getForm.Dispose();
+
+            if (success)
+            {
+                string finalRequest = "search_rows_by_number";
+                if (number != "")
+                {
+                    finalRequest += "," + number;
+                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                    string result = Networking.ReadMessage(conn.GetNetworkStream());
+                    richTextBox1.Text = "Fetch result:";
+                    if (result != "null")
+                    {
+                        richTextBox1.Text += Environment.NewLine + result;
+                    }
+                    else
+                    {
+                        richTextBox1.Text += Environment.NewLine + "No results found!";
+                    }
+                }
+                else
+                {
+                    richTextBox1.Text = "Invalid input!";
+                }
+            }
         }
 
         private void Button1_Click_1(object sender, EventArgs e)
