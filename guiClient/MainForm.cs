@@ -27,10 +27,10 @@ namespace guiClient
                 richTextBox1.Text = "Failed to connect, restart!";
             }
         }
-        private void MainForm_FormClosed(Object sender, FormClosedEventArgs e)
+        private void MainForm_FormClosing(Object sender, FormClosedEventArgs e)
         {
-            
-            
+            Networking.SendMessage(conn.GetNetworkStream(), "end");
+
         }
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -126,7 +126,7 @@ namespace guiClient
 
         private void Button1_Click_1(object sender, EventArgs e)
         {
-            Networking.SendMessage(conn.GetNetworkStream(), "end");
+            
         }
     }
 }
