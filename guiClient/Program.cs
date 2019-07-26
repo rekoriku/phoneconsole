@@ -18,7 +18,7 @@ namespace guiClient
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Connection conn = new Connection();
-            MainForm main_form = new MainForm(conn);
+            MainForm main_form = new MainForm(ref conn);
             Application.Run(main_form);
 
         }

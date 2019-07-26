@@ -15,7 +15,7 @@ namespace guiClient
     {
         private Connection conn;
         bool isDataSaved = false;
-        public MainForm(Connection new_conn)
+        public MainForm(ref Connection new_conn)
         {
             InitializeComponent();
             conn = new_conn;
@@ -288,6 +288,18 @@ namespace guiClient
         private void Button1_Click_1(object sender, EventArgs e)
         {
          
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text = "This GUI client allows you the user to interact with the database through server.";
+            richTextBox1.Text += Environment.NewLine + "To begin using the application select \"Actions\" from top left strip menu.";
+            richTextBox1.Text += Environment.NewLine + "Further instructions select options from \"Help\" strip menu.";
+        }
+
+        private void instructionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
