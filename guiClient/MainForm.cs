@@ -276,7 +276,6 @@ namespace guiClient
             }
         }
 
-<<<<<<< HEAD
         private void Button1_Click_1(object sender, EventArgs e)
         {
          
@@ -293,7 +292,5 @@ namespace guiClient
         {
 
         }
-=======
->>>>>>> 6f0dded8839b97bfe4d0fbff7f6f21d744a56273
     }
 }
