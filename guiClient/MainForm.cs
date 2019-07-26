@@ -288,11 +288,15 @@ namespace guiClient
             richTextBox1.Text = "This GUI client allows you the user to interact with the database through server.";
             richTextBox1.Text += Environment.NewLine + "To begin using the application select \"Actions\" from top left strip menu.";
             richTextBox1.Text += Environment.NewLine + "Further instructions select options from \"Help\" strip menu.";
+            richTextBox1.Text += Environment.NewLine + Environment.NewLine + "Made by Tomi Laurikainen and Riku Rekola.";
         }
 
         private void instructionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox1.Text = "1. To use this application client needs to connect to the server.";
+            richTextBox1.Text += Environment.NewLine + "2. Server needs to be able to connect to LAMK network.";
+            richTextBox1.Text += Environment.NewLine + "3. Connection can be establishment on the top right strip menu.";
+            richTextBox1.Text += Environment.NewLine + "3. Actions can be performed using the top left strip menu.";
         }
 
         private void ConnectToolStripMenuItem_Click(object sender, EventArgs e)
