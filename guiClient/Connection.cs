@@ -42,5 +42,10 @@ namespace guiClient
         {
             return connected;
         }
+
+        public void SetConnectionStatus(bool value)
+        {
+            connected = value;
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace guiClient
     {
         private Connection conn;
         bool isDataSaved = false;
+
         public MainForm(ref Connection new_conn)
         {
             InitializeComponent();
@@ -52,7 +53,8 @@ namespace guiClient
                 {
                     client.Client.Shutdown(SocketShutdown.Both);
                 }
-         
+
+                conn.SetConnectionStatus(false);
             }
 
         }
@@ -291,6 +293,33 @@ namespace guiClient
         private void instructionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ConnectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!conn.GetConnectionStatus())
+            {
+                conn = new Connection();
+                richTextBox1.Text = "Connection successful! "+ conn.GetConnectionStatus();
+            }
+            else
+            {
+                richTextBox1.Text = "Already Connected! "+ conn.GetConnectionStatus();
+            }
+            
+        }
+
+        private void DisconnectToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            TcpClient client = conn.GetTcpClient();
+            Networking.SendMessage(conn.GetNetworkStream(), "end");
+            if (client != null && client.Client.Connected)
+            {
+                client.Client.Shutdown(SocketShutdown.Both);
+            }
+
+            conn.SetConnectionStatus(false);
         }
     }
 }
