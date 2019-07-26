@@ -311,15 +311,27 @@ namespace guiClient
 
         private void DisconnectToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            TcpClient client = conn.GetTcpClient();
-            Networking.SendMessage(conn.GetNetworkStream(), "end");
-            if (client != null && client.Client.Connected)
+     
+            if (conn.GetConnectionStatus())
             {
-                client.Client.Shutdown(SocketShutdown.Both);
+                try
+                {
+                    Networking.SendMessage(conn.GetNetworkStream(), "end");
+                    conn.SetConnectionStatus(false);
+                    richTextBox1.Text = "Disconnection succefull";
+                }
+                catch(Exception ex)
+                {
+                    richTextBox1.Text = ex.ToString();
+                }
+            
             }
-
-            conn.SetConnectionStatus(false);
+            else
+            {
+                richTextBox1.Text = "Already disconnected";
+            }
+                
+       
         }
     }
 }
