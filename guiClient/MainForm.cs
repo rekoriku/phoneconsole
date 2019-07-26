@@ -300,11 +300,11 @@ namespace guiClient
             if (!conn.GetConnectionStatus())
             {
                 conn = new Connection();
-                richTextBox1.Text = "Connection successful! "+ conn.GetConnectionStatus();
+                richTextBox1.Text = "Creating connection! Connection status: "+ conn.GetConnectionStatus();
             }
             else
             {
-                richTextBox1.Text = "Already Connected! "+ conn.GetConnectionStatus();
+                richTextBox1.Text = "Already Connected! Connection status: " + conn.GetConnectionStatus();
             }
             
         }
@@ -318,11 +318,12 @@ namespace guiClient
                 {
                     Networking.SendMessage(conn.GetNetworkStream(), "end");
                     conn.SetConnectionStatus(false);
-                    richTextBox1.Text = "Disconnection succefull";
+                    richTextBox1.Text = "Disconnection successful";
                 }
                 catch(Exception ex)
                 {
                     richTextBox1.Text = ex.ToString();
+                    conn.SetConnectionStatus(false);
                 }
             
             }
