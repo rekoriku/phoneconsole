@@ -52,6 +52,7 @@ namespace guiClient
                 if (client != null && client.Client.Connected)
                 {
                     client.Client.Shutdown(SocketShutdown.Both);
+                    client.Close();
                 }
 
                 conn.SetConnectionStatus(false);
