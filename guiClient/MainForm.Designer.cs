@@ -36,10 +36,13 @@
             this.getNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+<<<<<<< HEAD
             this.button1 = new System.Windows.Forms.Button();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instructionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+>>>>>>> 6f0dded8839b97bfe4d0fbff7f6f21d744a56273
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -114,6 +117,7 @@
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.RichTextBox1_TextChanged);
             // 
+<<<<<<< HEAD
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(494, 0);
@@ -147,12 +151,13 @@
             this.instructionsToolStripMenuItem.Text = "Instructions";
             this.instructionsToolStripMenuItem.Click += new System.EventHandler(this.instructionsToolStripMenuItem_Click);
             // 
+=======
+>>>>>>> 6f0dded8839b97bfe4d0fbff7f6f21d744a56273
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -175,9 +180,12 @@
         private System.Windows.Forms.ToolStripMenuItem getAllToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getNameToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getNumberToolStripMenuItem;
+<<<<<<< HEAD
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem instructionsToolStripMenuItem;
+=======
+>>>>>>> 6f0dded8839b97bfe4d0fbff7f6f21d744a56273
     }
 }

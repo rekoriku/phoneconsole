@@ -35,17 +35,13 @@ namespace guiClient
         private void OtherInitialize()
         {
             this.Closing += new CancelEventHandler(this.MainForm_Closing);
-            // Exchange commented line and note the difference.
-          
             this.isDataSaved = true;
-            //this.isDataSaved = false;
         }
         private void MainForm_Closing(Object sender, CancelEventArgs e)
         {
             if (!isDataSaved)
             {
                 e.Cancel = true;
-                //MessageBox.Show("You must save first.");
             }
             else
             {
@@ -57,11 +53,6 @@ namespace guiClient
                     client.Client.Shutdown(SocketShutdown.Both);
                 }
          
-                    
-                
-
-
-                //MessageBox.Show("Goodbye.");
             }
 
         }
@@ -285,6 +276,7 @@ namespace guiClient
             }
         }
 
+<<<<<<< HEAD
         private void Button1_Click_1(object sender, EventArgs e)
         {
          
@@ -301,5 +293,7 @@ namespace guiClient
         {
 
         }
+=======
+>>>>>>> 6f0dded8839b97bfe4d0fbff7f6f21d744a56273
     }
 }
