@@ -69,73 +69,87 @@ namespace guiClient
 
         private void insertToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            string firstname, lastname, address, phone_number;
-            firstname = lastname = address = phone_number = "";
-            InsertUserForm insertUserForm = new InsertUserForm();
-            if (insertUserForm.ShowDialog() == DialogResult.OK)
+            if(conn.GetConnectionStatus())
             {
-                success = true;
-                firstname = insertUserForm.GetFirstName();
-                lastname = insertUserForm.GetLastName();
-                address = insertUserForm.GetAddress();
-                phone_number = insertUserForm.GetPhoneNumber();
-            }
-            else
-            {
-                success = false;
-            }
-            insertUserForm.Dispose();
-
-            if (success)
-            {
-                string finalRequest = "add_rows";
-                if (firstname != "" && lastname != "" && address != "" && phone_number != "")
+                bool success = false;
+                string firstname, lastname, address, phone_number;
+                firstname = lastname = address = phone_number = "";
+                InsertUserForm insertUserForm = new InsertUserForm();
+                if (insertUserForm.ShowDialog() == DialogResult.OK)
                 {
-                    finalRequest += "," + lastname + "," + firstname + "," + address + "," + phone_number;
-                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
-                    richTextBox1.Text = Networking.ReadMessage(conn.GetNetworkStream());
+                    success = true;
+                    firstname = insertUserForm.GetFirstName();
+                    lastname = insertUserForm.GetLastName();
+                    address = insertUserForm.GetAddress();
+                    phone_number = insertUserForm.GetPhoneNumber();
                 }
                 else
                 {
-                    richTextBox1.Text = "Invalid input!";
+                    success = false;
                 }
+                insertUserForm.Dispose();
+
+                if (success)
+                {
+                    string finalRequest = "add_rows";
+                    if (firstname != "" && lastname != "" && address != "" && phone_number != "")
+                    {
+                        finalRequest += "," + lastname + "," + firstname + "," + address + "," + phone_number;
+                        Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                        richTextBox1.Text = Networking.ReadMessage(conn.GetNetworkStream());
+                    }
+                    else
+                    {
+                        richTextBox1.Text = "Invalid input!";
+                    }
+                }
+            }
+            else
+            {
+                richTextBox1.Text = "Cannot perform action because of no connection to the server!";
             }
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            int id = -1;
-            GetForm getForm = new GetForm();
-            getForm.SetFormHeader("Delete");
-            getForm.SetHeader("Enter Index:");
-            getForm.SetAcceptOnlyNumbers(true);
-            if (getForm.ShowDialog() == DialogResult.OK)
+            if (conn.GetConnectionStatus())
             {
-                Int32.TryParse(getForm.GetValue(), out id);
-                success = true;
-            }
-            else
-            {
-                success = false;
-            }
-            getForm.Dispose();
-
-            if(success)
-            {
-                string finalRequest = "delete_rows";
-                if (id != -1)
+                bool success = false;
+                int id = -1;
+                GetForm getForm = new GetForm();
+                getForm.SetFormHeader("Delete");
+                getForm.SetHeader("Enter Index:");
+                getForm.SetAcceptOnlyNumbers(true);
+                if (getForm.ShowDialog() == DialogResult.OK)
                 {
-                    finalRequest += "," + id;
-                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
-                    string result = Networking.ReadMessage(conn.GetNetworkStream());
-                    richTextBox1.Text = result;
+                    Int32.TryParse(getForm.GetValue(), out id);
+                    success = true;
                 }
                 else
                 {
-                    richTextBox1.Text = "Invalid input!";
+                    success = false;
                 }
+                getForm.Dispose();
+
+                if (success)
+                {
+                    string finalRequest = "delete_rows";
+                    if (id != -1)
+                    {
+                        finalRequest += "," + id;
+                        Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                        string result = Networking.ReadMessage(conn.GetNetworkStream());
+                        richTextBox1.Text = result;
+                    }
+                    else
+                    {
+                        richTextBox1.Text = "Invalid input!";
+                    }
+                }
+            }
+            else
+            {
+                richTextBox1.Text = "Cannot perform action because of no connection to the server!";
             }
         }
 
@@ -146,98 +160,119 @@ namespace guiClient
 
         private void getAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Networking.SendMessage(conn.GetNetworkStream(), "search_all_rows");
-            string result = Networking.ReadMessage(conn.GetNetworkStream());
-            result = result.Replace(",id:", ";id:");
-            string[] result_arr = result.Split(';');
-            richTextBox1.Text = "Fetch result:";
-            foreach (string val in result_arr)
+            if (conn.GetConnectionStatus())
             {
-                richTextBox1.Text += Environment.NewLine + val;
+                Networking.SendMessage(conn.GetNetworkStream(), "search_all_rows");
+                string result = Networking.ReadMessage(conn.GetNetworkStream());
+                result = result.Replace(",id:", ";id:");
+                string[] result_arr = result.Split(';');
+                richTextBox1.Text = "Fetch result:";
+                foreach (string val in result_arr)
+                {
+                    richTextBox1.Text += Environment.NewLine + val;
+                }
+            }
+            else
+            {
+                richTextBox1.Text = "Cannot perform action because of no connection to the server!";
             }
         }
 
         private void getNameToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            string lastname = "";
-            GetForm getForm = new GetForm();
-            getForm.SetHeader("Enter Name:");
-            if (getForm.ShowDialog() == DialogResult.OK)
+            if (conn.GetConnectionStatus())
             {
-                success = true;
-                lastname = getForm.GetValue();
-            }
-            else
-            {
-                success = false;
-            }
-            getForm.Dispose();
-
-            if(success)
-            {
-                string finalRequest = "search_rows_by_name";
-                if (lastname != "")
+                bool success = false;
+                string lastname = "";
+                GetForm getForm = new GetForm();
+                getForm.SetHeader("Enter Name:");
+                if (getForm.ShowDialog() == DialogResult.OK)
                 {
-                    finalRequest += "," + lastname;
-                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
-                    string result = Networking.ReadMessage(conn.GetNetworkStream());
-                    richTextBox1.Text = "Fetch result:";
-                    if(result != "null")
-                    {
-                        richTextBox1.Text += Environment.NewLine + result;
-                    }
-                    else
-                    {
-                        richTextBox1.Text += Environment.NewLine + "No results found!";
-                    }
+                    success = true;
+                    lastname = getForm.GetValue();
                 }
                 else
                 {
-                    richTextBox1.Text = "Invalid input!";
+                    success = false;
                 }
+                getForm.Dispose();
+
+                if (success)
+                {
+                    string finalRequest = "search_rows_by_name";
+                    if (lastname != "")
+                    {
+                        finalRequest += "," + lastname;
+                        Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                        string result = Networking.ReadMessage(conn.GetNetworkStream());
+                        richTextBox1.Text = "Fetch result:";
+                        if (result != "null")
+                        {
+                            richTextBox1.Text += Environment.NewLine + result;
+                        }
+                        else
+                        {
+                            richTextBox1.Text += Environment.NewLine + "No results found!";
+                        }
+                    }
+                    else
+                    {
+                        richTextBox1.Text = "Invalid input!";
+                    }
+                }
+            }
+            else
+            {
+                richTextBox1.Text = "Cannot perform action because of no connection to the server!";
             }
         }
 
         private void getNumberToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            string number = "";
-            GetForm getForm = new GetForm();
-            getForm.SetHeader("Enter Number:");
-            if (getForm.ShowDialog() == DialogResult.OK)
+            if (conn.GetConnectionStatus())
             {
-                success = true;
-                number = getForm.GetValue();
-            }
-            else
-            {
-                success = false;
-            }
-            getForm.Dispose();
-
-            if (success)
-            {
-                string finalRequest = "search_rows_by_number";
-                if (number != "")
+                bool success = false;
+                string number = "";
+                GetForm getForm = new GetForm();
+                getForm.SetHeader("Enter Number:");
+                if (getForm.ShowDialog() == DialogResult.OK)
                 {
-                    finalRequest += "," + number;
-                    Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
-                    string result = Networking.ReadMessage(conn.GetNetworkStream());
-                    richTextBox1.Text = "Fetch result:";
-                    if (result != "null")
-                    {
-                        richTextBox1.Text += Environment.NewLine + result;
-                    }
-                    else
-                    {
-                        richTextBox1.Text += Environment.NewLine + "No results found!";
-                    }
+                    success = true;
+                    number = getForm.GetValue();
                 }
                 else
                 {
-                    richTextBox1.Text = "Invalid input!";
+                    success = false;
                 }
+                getForm.Dispose();
+
+                if (success)
+                {
+                    string finalRequest = "search_rows_by_number";
+                    if (number != "")
+                    {
+                        finalRequest += "," + number;
+                        Networking.SendMessage(conn.GetNetworkStream(), finalRequest.ToString());
+                        string result = Networking.ReadMessage(conn.GetNetworkStream());
+                        richTextBox1.Text = "Fetch result:";
+                        if (result != "null")
+                        {
+                            richTextBox1.Text += Environment.NewLine + result;
+                        }
+                        else
+                        {
+                            richTextBox1.Text += Environment.NewLine + "No results found!";
+                        }
+                    }
+                    else
+                    {
+                        richTextBox1.Text = "Invalid input!";
+                    }
+                }
+            }
+            else
+            {
+                richTextBox1.Text = "Cannot perform action because of no connection to the server!";
             }
         }
 
