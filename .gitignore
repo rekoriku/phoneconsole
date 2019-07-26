@@ -341,3 +341,4 @@ healthchecksdb
 
 # Settings file that contains database aconnection information
 server/Settings.cs
+server/Settings.cs
