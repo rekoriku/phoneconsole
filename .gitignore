@@ -339,5 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 
-# Settings file that contains database aconnection information
-server/Settings.cs
+# Settings file that contains database connection information
+.server/Settings.cs
