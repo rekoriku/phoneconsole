@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Tekijät
+//Tomi Laurikainen 1401572
+//Riku Rekola 1401563
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

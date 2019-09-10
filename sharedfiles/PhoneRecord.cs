@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Tekijät
+//Tomi Laurikainen 1401572
+//Riku Rekola 1401563
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -21,4 +25,3 @@ class PhoneRecord
         return "id: " + id + ", " + lastname + " " + firstname + ", address: " + address + ", phonenumber: " + phonenumber;
     }
 }
-

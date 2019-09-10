@@ -1,4 +1,8 @@
-﻿using System;
+﻿//Tekijät
+//laurtomi 1401572
+//rekoriku 1401563
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
